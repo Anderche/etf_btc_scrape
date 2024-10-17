@@ -3,6 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
 import os
+import re
 
 def process_html_file(file_path):
     try:
@@ -79,14 +80,16 @@ def process_html_file(file_path):
         print("Converting numeric columns to float...")
         numeric_columns = headers[1:]
         for col in numeric_columns:
-            df_full[col] = pd.to_numeric(df_full[col].replace('-', '0'), errors='coerce')
+            df_full[col] = df_full[col].apply(lambda x: parse_numeric_value(x))
+            try:
+                df_full[col] = df_full[col].astype(float)
+                df_full[col] = df_full[col].round(2)  # Round to 2 decimal places
+            except ValueError as e:
+                print(f"Error converting column '{col}' to float. Error: {str(e)}")
+                print(f"Problematic values in '{col}': {df_full[col][df_full[col].apply(lambda x: not isinstance(x, (int, float)))].unique()}")
         
-        # Sort by date in descending order
-        df_full = df_full.sort_values('Date', ascending=False)
-        print("DataFrame sorted by date.")
-        
-        # Create latest data DataFrame
-        df_latest = df_full[df_full['Date'] == df_full['Date'].max()].copy()
+        # Create latest data DataFrame (first row, which is the most recent date)
+        df_latest = df_full.iloc[[0]].copy()
         
         if df_latest.empty:
             raise ValueError("No latest data available. Check if the dates are parsed correctly.")
@@ -106,6 +109,16 @@ def process_html_file(file_path):
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")
         sys.exit(1)
+
+def parse_numeric_value(value):
+    if pd.isna(value) or value == '-':
+        return 0.0
+    value = str(value).strip()
+    # Remove commas from the string
+    value = value.replace(',', '')
+    if value.startswith('(') and value.endswith(')'):
+        return -float(value[1:-1])
+    return float(value)
 
 def save_dataframes(df_full, df_latest):
     try:
@@ -148,5 +161,13 @@ if __name__ == '__main__':
         print("\nOperation cancelled by user.")
         sys.exit(1)
     except Exception as e:
-        print(f"An unexpected error occurred in the main execution: {str(e)}")
-        sys.exit(1)
+        print(f"An error occurred in the main execution: {str(e)}")
+        print("Continuing to display data if available...")
+    
+    # Display data even if an error occurred
+    if 'df_full' in locals() and 'df_latest' in locals():
+        print("\nFull data shape:", df_full.shape)
+        print("\nLatest data:")
+        print(df_latest)
+    else:
+        print("Data processing failed. No data to display.")
