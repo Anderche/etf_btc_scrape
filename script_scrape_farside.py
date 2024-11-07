@@ -1,6 +1,12 @@
 import asyncio
 from crawl4ai import AsyncWebCrawler
 
+# Define constants for URLs
+URLS = {
+    'bitcoin': "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+    'ethereum': "https://farside.co.uk/ethereum-etf-flow-all-data/"
+}
+
 async def scrape_full_page(url, crawler):
     try:
         result = await crawler.arun(
@@ -20,11 +26,19 @@ async def scrape_full_page(url, crawler):
         print(f"Error scraping {url}: {str(e)}")
         return None
 
-async def main():
-    # Example URL to scrape (you can change this to any URL you want to scrape)
-    # url = "https://polymarket.com/event/presidential-election-winner-2024"
-    url = "https://farside.co.uk/bitcoin-etf-flow-all-data/"
+def get_user_choice():
+    while True:
+        choice = input("Which ETF data would you like to scrape? (bitcoin/ethereum): ").lower()
+        if choice in URLS:
+            return choice
+        print("Invalid choice. Please enter 'bitcoin' or 'ethereum'.")
 
+async def main():
+    # Get user choice
+    asset = get_user_choice()
+    url = URLS[asset]
+
+    print(f"\nSelected: {asset.upper()} ETF data")
     async with AsyncWebCrawler(verbose=True) as crawler:
         print(f"Scraping full page content from: {url}")
         content = await scrape_full_page(url, crawler)

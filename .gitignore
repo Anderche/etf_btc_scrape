@@ -3,3 +3,7 @@ __pycache__/
 
 # Ignore artifacts_csv directory
 /artifacts_csv/
+
+# Parquet data files
+FULL_DATA_*.parquet
+LATEST_DATA_*.parquet
