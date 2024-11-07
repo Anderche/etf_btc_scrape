@@ -6,6 +6,17 @@ A Python script for scraping cryptocurrency ETF data.
 
 This script (`script_scrape_farside.py`) is designed to scrape and collect data about cryptocurrency ETFs from financial data sources. It helps track and analyze ETF performance and metrics related to various cryptocurrencies.
 
+## Why Track Crypto ETFs?
+
+Tracking cryptocurrency ETFs is crucial for several reasons:
+
+- **Institutional Adoption**: ETFs represent a major step in cryptocurrency's integration into traditional finance, offering regulated exposure to digital assets
+- **Market Impact**: ETF trading volumes and flows can significantly influence cryptocurrency prices and market sentiment
+- **Investment Accessibility**: ETFs provide a familiar, regulated vehicle for investors to gain crypto exposure without direct cryptocurrency ownership
+- **Price Discovery**: ETF prices and premiums/discounts to NAV offer valuable market signals
+- **Regulatory Insights**: Changes in ETF holdings and regulations can indicate broader crypto market trends
+- **Portfolio Management**: ETF data helps investors optimize their crypto exposure within traditional investment frameworks
+
 ## Prerequisites
 
 - Python 3.x
