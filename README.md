@@ -66,7 +66,6 @@ python script_scrape_farside.py
   - Volume
   - Assets Under Management (AUM)
   - Performance metrics
-  - [Add specific metrics based on your script's functionality]
 
 ## Data Sources
     - https://farside.co.uk/
