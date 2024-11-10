@@ -1,6 +1,7 @@
 # Crypto ETF Data Scraper
 
-A Python script for scraping cryptocurrency ETF data.
+A Python script for scraping cryptocurrency Exchange-Traded Fund (ETF) data. An ETF (Exchange-Traded Fund) is an investment fund traded on stock exchanges that holds assets like stocks, bonds, or commodities; they typically track an index, charge low fees, and offer liquidity.
+
 
 ## Description
 
