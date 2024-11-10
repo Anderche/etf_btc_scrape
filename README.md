@@ -1,7 +1,12 @@
 # Crypto ETF Data Scraper
 
-A Python script for scraping cryptocurrency **Exchange-Traded Fund (ETF)** data. An ETF is an investment fund traded on stock exchanges that holds assets like stocks, bonds, or commodities; they typically track an index, charge low fees, and offer liquidity. This script tracks the flows (million, USD) for Bitcoin ($BTC) ETF's, like BlackRock's $IBIT and Fidelity's $FBTC, which offer investors exposure through regular brokerage accounts without managing crypto wallets or keys. Flows refer to the movement of money into (inflows) or out of (outflows) investment products. Specifically, positive flows indicate investors are buying shares whereas negative flows show indicate selling.
+### Developed By:
 
+Anders Kiss 
+
+---
+
+A Python script for scraping cryptocurrency **Exchange-Traded Fund (ETF)** data. An ETF is an investment fund traded on stock exchanges that holds assets like stocks, bonds, or commodities; they typically track an index, charge low fees, and offer liquidity. This script tracks the flows (million, USD) for Bitcoin ($BTC) ETF's, like BlackRock's $IBIT and Fidelity's $FBTC, which offer investors exposure through regular brokerage accounts without managing crypto wallets or keys. Flows refer to the movement of money into (inflows) or out of (outflows) investment products. Specifically, positive flows indicate investors are buying shares whereas negative flows show indicate selling.
 
 ## Description
 
