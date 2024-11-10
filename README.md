@@ -6,15 +6,13 @@ Anders Kiss
 
 ---
 
-A Python script for scraping cryptocurrency **Exchange-Traded Fund (ETF)** data. An ETF is an investment fund traded on stock exchanges that holds assets like stocks, bonds, or commodities; they typically track an index, charge low fees, and offer liquidity. This script tracks the flows (million, USD) for Bitcoin ($BTC) ETF's, like BlackRock's $IBIT and Fidelity's $FBTC, which offer investors exposure through regular brokerage accounts without managing crypto wallets or keys. Flows refer to the movement of money into (inflows) or out of (outflows) investment products. Specifically, positive flows indicate investors are buying shares whereas negative flows show indicate selling.
-
 ## Description
 
-This script (`script_scrape_farside.py`) is designed to scrape and collect data about cryptocurrency ETFs from financial data sources. It helps track and analyze ETF performance and metrics related to various cryptocurrencies.
+A Python script for scraping cryptocurrency **Exchange-Traded Fund (ETF)** data. An ETF is an investment fund traded on stock exchanges that holds assets like stocks, bonds, or commodities; they typically track an index, charge low fees, and offer liquidity. This script tracks the flows (million, USD) for Bitcoin ($BTC) ETF's, like BlackRock's $IBIT and Fidelity's $FBTC, which offer investors exposure through regular brokerage accounts without managing crypto wallets or keys. Flows refer to the movement of money into (inflows) or out of (outflows) investment products. Specifically, positive flows indicate investors are buying shares whereas negative flows show indicate selling.
 
 ## Why Track Crypto ETFs?
 
-Tracking cryptocurrency ETFs is crucial for several reasons:
+Tracking cryptocurrency ETF's could be informative in various regards:
 
 - **Institutional Adoption**: ETFs represent a major step in cryptocurrency's integration into traditional finance, offering regulated exposure to digital assets
 - **Market Impact**: ETF trading volumes and flows can significantly influence cryptocurrency prices and market sentiment
